@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import subprocess as terminal
 import os
 import colorama as Palette
@@ -11,7 +13,7 @@ if os.name == 'nt':
     # commands for windows
     terminal.run('cls')
     message("[!] Sorry, TermUI is not available for windows yet...", Colors.YELLOW)
-elif os.name == 'posix':
+if os.name == 'posix':
     # commands for linux/macOS
     terminal.run('clear')
     message("[+] TermUI for linux/macOS starting...", Colors.GREEN)
