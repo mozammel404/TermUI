@@ -3,7 +3,7 @@ echo "[!] Make sure to have internet access."
 pkg update -y
 pkg upgrade -y
 pkg install python3 -y
-pip3 install colorama
+pip install colorama
 chmod +x termui.py
 cp termui.py $PREFIX/bin/termui
 echo "[+] Setup finished."
