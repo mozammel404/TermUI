@@ -3,6 +3,10 @@
 import subprocess as terminal
 import os
 import colorama as Palette
+import readline
+
+# readline.parse_and_bind('"^[[A": history-search-forward')
+readline.parse_and_bind("")
 
 Colors = Palette.Fore
 
@@ -30,14 +34,19 @@ if os.name == 'posix':
             if cmmnd == "exit":
                 terminated = True
                 break
-            elif cmmnd.split()[0] == "cd":
-                if len(cmmnd.split()) > 1:
-                    try:
-                        os.chdir(cmmnd[3:])
-                    except FileNotFoundError:
-                        message(f"[-] {cmmnd.split()[1]} not found!", Colors.RED)
+            elif len(cmmnd.split()) > 1 :
+
+                # all 
+                if cmmnd.split()[0] == "cd":
+                    if len(cmmnd.split()) > 1:
+                        try:
+                            os.chdir(cmmnd[3:])
+                        except FileNotFoundError:
+                            message(f"[-] {cmmnd.split()[1]} not found!", Colors.RED)
+                    else:
+                        message("You need to mention where you want to go!", Colors.YELLOW)
                 else:
-                    message("You need to mention where you want to go!", Colors.YELLOW)
+                    terminal.run(cmmnd, shell=True)
             else:
                 terminal.run(cmmnd, shell=True)
         except KeyboardInterrupt:
