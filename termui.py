@@ -5,7 +5,6 @@ import os
 import colorama as Palette
 import readline
 
-# readline.parse_and_bind('"^[[A": history-search-forward')
 readline.parse_and_bind("")
 
 Colors = Palette.Fore
